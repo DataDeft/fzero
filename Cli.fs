@@ -1,4 +1,4 @@
-namespace AlphaZeroBackGammon
+namespace Fzero
 
 // internal
 open Logging

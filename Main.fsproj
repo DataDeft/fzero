@@ -3,13 +3,14 @@
   <PropertyGroup>
     <Company>l1x</Company>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>azbg</AssemblyName>
+    <AssemblyName>fzero</AssemblyName>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="Types.fs" />
     <Compile Include="Logging.fs" />
+    <Compile Include="TicTacToe.fs" />
     <Compile Include="Cli.fs" />
     <Compile Include="Main.fs" />
   </ItemGroup>
