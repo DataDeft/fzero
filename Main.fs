@@ -6,23 +6,11 @@ open Logging
 
 //external
 open System
-open System.Collections
 
 module Main =
 
   let loggerMain =
     Logger.CreateLogger "Main" "info" (fun () -> DateTime.Now)
-
-  type TicTacToeAtom = X | O | None
-
-  type TicTacToeState = list<TicTacToeAtom>
-
-  let exampleGameStateNone : TicTacToeState =
-    [X; O; None; None; None; None; None; None; None]
-
-  let exampleGameStateX : TicTacToeState =
-    [X; O; None; X; O; None; X; None; None]
-
 
 
   [<EntryPoint>]
@@ -32,5 +20,23 @@ module Main =
 
     loggerMain.LogInfo
     <| sprintf "%A" commandLineArgumentsParsed
+
+    let game = TicTacToe.createGame()
+
+    loggerMain.LogInfo
+    <| sprintf "%A" (TicTacToe.step game (Action.Create 4) X)
+
+    loggerMain.LogInfo
+    <| sprintf "%A" (TicTacToe.step game (Action.Create 0) O)
+
+    loggerMain.LogInfo
+    <| sprintf "%A" (TicTacToe.step game (Action.Create 5) X)
+
+    loggerMain.LogInfo
+    <| sprintf "%A" (TicTacToe.step game (Action.Create 1) O)
+
+    loggerMain.LogInfo
+    <| sprintf "%A" (TicTacToe.step game (Action.Create 3) X)
+
 
     0
