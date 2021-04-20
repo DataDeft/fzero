@@ -11,6 +11,8 @@
     <Compile Include="Types.fs" />
     <Compile Include="Logging.fs" />
     <Compile Include="TicTacToe.fs" />
+    <Compile Include="Network.fs" />
+    <Compile Include="MuZero.fs" />
     <Compile Include="Cli.fs" />
     <Compile Include="Main.fs" />
   </ItemGroup>
