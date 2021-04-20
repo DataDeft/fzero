@@ -1,6 +1,7 @@
 namespace Fzero
 
 open System.Collections.Generic
+open System
 
 
 type ReplayBuffer = {
@@ -17,12 +18,15 @@ type ReplayBuffer = {
     | _ -> this.Buffer.Enqueue(game)
 
   member this.SampleBatch (numUnrollSteps:int) (numTdSteps:int) =
-    1
 
+    let r = Random()
 
-  // def sample_batch(self, num_unroll_steps: int, td_steps: int):
-  //   games = [self.sample_game() for _ in range(self.batch_size)]
-  //   game_pos = [(g, self.sample_position(g)) for g in games]
-  //   return [(g.make_observation(i), g.history[i:i + num_unroll_steps],
-  //            g.make_target(i, num_unroll_steps, td_steps, g.to_play()))
-  //           for (g, i) in game_pos]
+    let games =
+
+      this.Buffer.ToArray()
+      |> Seq.sortBy (fun _ -> r.Next())
+      |> Seq.take (int(this.BatchSize))
+
+    let gamesPos = games
+    // TODO: I do not understand what this function does or what it needs to return
+    gamesPos
